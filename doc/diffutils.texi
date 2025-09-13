@@ -3764,10 +3764,7 @@ If two file names are given and both are directories,
 @command{diff} compares corresponding files in both directories, in
 alphabetical order; this comparison is not recursive unless the
 @option{--recursive} (@option{-r}) option is given.  @command{diff} never
-compares the actual contents of a directory as if it were a file.  The
-file that is fully specified may not be standard input, because standard
-input is nameless and the notion of ``file with the same name'' does not
-apply.
+compares the actual contents of a directory as if it were a file.
 
 If the @option{--from-file=@var{file}} option is given, the number of
 file names is arbitrary, and @var{file} is compared to each named file.
