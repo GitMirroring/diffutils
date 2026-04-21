@@ -1025,6 +1025,12 @@ readnum (char *s, lin *pnum)
     }
   while (c_isdigit (c));
 
+  /* Simplify overflow checking later, so that we can always add a
+     line number and a line count, or subtract two line numbers and
+     add 1 to the result, without worrying about overflow.  */
+  if (LIN_MAX / 2 < num)
+    return nullptr;
+
   *pnum = num;
   return s;
 }
