@@ -1245,6 +1245,9 @@ static char *
 scan_diff_line (char *scan_ptr, char **set_start, idx_t *set_length,
                 char *limit, char leadingchar)
 {
+  if (limit - scan_ptr < sizeof "< \n" - 1)
+    fatal ("invalid diff format; hunk truncated");
+
   if (!(scan_ptr[0] == leadingchar
         && scan_ptr[1] == ' '))
     fatal ("invalid diff format; incorrect leading line chars");

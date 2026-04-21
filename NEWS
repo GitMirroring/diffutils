@@ -5,12 +5,9 @@ GNU diffutils NEWS                                    -*- outline -*-
 ** Bug fixes
 
   diff3 no longer has undefined behavior if the underlying diff
-  program produces incorrect command lines.
-  [bug present since "the beginning"]
-
-  diff3 no longer overflows integers when reading line numbers from the
-  diff program.
-  [bug present since "the beginning"]
+  program produces incorrect command lines, or enormous line numbers,
+  or unexpectedly truncated data.
+  [bugs present since "the beginning"]
 
 
 * Noteworthy changes in release 3.12 (2025-04-08) [stable]
