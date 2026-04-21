@@ -1054,11 +1054,12 @@ process_diff_control (char **string, struct diff_block *db)
 
   /* Was that the only digit? */
   s = skipwhite (s);
-  if (*s == ',')
+  bool saw_comma = *s == ',';
+  if (saw_comma)
     {
       s = readnum (s + 1, &db->ranges[0][RANGE_END]);
-      if (! s)
-        return DIFF_ERROR;
+      if (! s || db->ranges[0][RANGE_END] < db->ranges[0][RANGE_START])
+	return DIFF_ERROR;
     }
   else
     db->ranges[0][RANGE_END] = db->ranges[0][RANGE_START];
@@ -1069,6 +1070,8 @@ process_diff_control (char **string, struct diff_block *db)
   switch (*s)
     {
     case 'a':
+      if (saw_comma)
+	return DIFF_ERROR;
       type = DIFF_ADD;
       break;
     case 'c':
