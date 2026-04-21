@@ -2,6 +2,11 @@ GNU diffutils NEWS                                    -*- outline -*-
 
 * Noteworthy changes in release ?.? (????-??-??) [?]
 
+** Bug fixes
+
+  diff3 no longer overflows integers when reading line numbers from the
+  diff program.
+  [bug present since "the beginning"]
 
 * Noteworthy changes in release 3.12 (2025-04-08) [stable]
 

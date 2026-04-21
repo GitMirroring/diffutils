@@ -1019,7 +1019,8 @@ readnum (char *s, lin *pnum)
 
   do
     {
-      num = c - '0' + num * 10;
+      if (ckd_mul (&num, num, 10) || ckd_add (&num, num, c - '0'))
+        return nullptr;
       c = *++s;
     }
   while (c_isdigit (c));
