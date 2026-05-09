@@ -115,16 +115,16 @@ enum
 static char const shortopts[] = "bci:ln:sv";
 static struct option const longopts[] =
 {
-  {"print-bytes", 0, 0, 'b'},
-  {"print-chars", 0, 0, 'c'}, /* obsolescent as of diffutils 2.7.3 */
-  {"ignore-initial", 1, 0, 'i'},
-  {"verbose", 0, 0, 'l'},
-  {"bytes", 1, 0, 'n'},
-  {"silent", 0, 0, 's'},
-  {"quiet", 0, 0, 's'},
-  {"version", 0, 0, 'v'},
-  {"help", 0, 0, HELP_OPTION},
-  {0, 0, 0, 0}
+  {"print-bytes", 0, nullptr, 'b'},
+  {"print-chars", 0, nullptr, 'c'}, /* obsolescent as of diffutils 2.7.3 */
+  {"ignore-initial", 1, nullptr, 'i'},
+  {"verbose", 0, nullptr, 'l'},
+  {"bytes", 1, nullptr, 'n'},
+  {"silent", 0, nullptr, 's'},
+  {"quiet", 0, nullptr, 's'},
+  {"version", 0, nullptr, 'v'},
+  {"help", 0, nullptr, HELP_OPTION},
+  {nullptr, 0, nullptr, 0}
 };
 
 static char const valid_suffixes[] = "kKMGTPEZY0";

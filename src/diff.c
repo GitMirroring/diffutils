@@ -184,72 +184,72 @@ static char const shortopts[] =
   "0123456789abBcC:dD:eEfF:hHiI:lL:nNpPqrsS:tTuU:vwW:x:X:yZ";
 static struct option const longopts[] =
 {
-  {"binary", 0, 0, BINARY_OPTION},
-  {"brief", 0, 0, 'q'},
-  {"changed-group-format", 1, 0, CHANGED_GROUP_FORMAT_OPTION},
-  {"color", 2, 0, COLOR_OPTION},
-  {"context", 2, 0, 'C'},
-  {"ed", 0, 0, 'e'},
-  {"exclude", 1, 0, 'x'},
-  {"exclude-from", 1, 0, 'X'},
-  {"expand-tabs", 0, 0, 't'},
-  {"forward-ed", 0, 0, 'f'},
-  {"from-file", 1, 0, FROM_FILE_OPTION},
-  {"help", 0, 0, HELP_OPTION},
-  {"horizon-lines", 1, 0, HORIZON_LINES_OPTION},
-  {"ifdef", 1, 0, 'D'},
-  {"ignore-all-space", 0, 0, 'w'},
-  {"ignore-blank-lines", 0, 0, 'B'},
-  {"ignore-case", 0, 0, 'i'},
-  {"ignore-file-name-case", 0, 0, IGNORE_FILE_NAME_CASE_OPTION},
-  {"ignore-matching-lines", 1, 0, 'I'},
-  {"ignore-space-change", 0, 0, 'b'},
-  {"ignore-tab-expansion", 0, 0, 'E'},
-  {"ignore-trailing-space", 0, 0, 'Z'},
-  {"inhibit-hunk-merge", 0, 0, INHIBIT_HUNK_MERGE_OPTION},
-  {"initial-tab", 0, 0, 'T'},
-  {"label", 1, 0, 'L'},
-  {"left-column", 0, 0, LEFT_COLUMN_OPTION},
-  {"line-format", 1, 0, LINE_FORMAT_OPTION},
-  {"minimal", 0, 0, 'd'},
-  {"new-file", 0, 0, 'N'},
-  {"new-group-format", 1, 0, NEW_GROUP_FORMAT_OPTION},
-  {"new-line-format", 1, 0, NEW_LINE_FORMAT_OPTION},
-  {"no-dereference", 0, 0, NO_DEREFERENCE_OPTION},
-  {"no-ignore-file-name-case", 0, 0, NO_IGNORE_FILE_NAME_CASE_OPTION},
-  {"normal", 0, 0, NORMAL_OPTION},
-  {"old-group-format", 1, 0, OLD_GROUP_FORMAT_OPTION},
-  {"old-line-format", 1, 0, OLD_LINE_FORMAT_OPTION},
-  {"paginate", 0, 0, 'l'},
-  {"palette", 1, 0, COLOR_PALETTE_OPTION},
-  {"rcs", 0, 0, 'n'},
-  {"recursive", 0, 0, 'r'},
-  {"report-identical-files", 0, 0, 's'},
-  {"sdiff-merge-assist", 0, 0, SDIFF_MERGE_ASSIST_OPTION},
-  {"show-c-function", 0, 0, 'p'},
-  {"show-function-line", 1, 0, 'F'},
-  {"side-by-side", 0, 0, 'y'},
-  {"speed-large-files", 0, 0, 'H'},
-  {"starting-file", 1, 0, 'S'},
-  {"strip-trailing-cr", 0, 0, STRIP_TRAILING_CR_OPTION},
-  {"suppress-blank-empty", 0, 0, SUPPRESS_BLANK_EMPTY_OPTION},
-  {"suppress-common-lines", 0, 0, SUPPRESS_COMMON_LINES_OPTION},
-  {"tabsize", 1, 0, TABSIZE_OPTION},
-  {"text", 0, 0, 'a'},
-  {"to-file", 1, 0, TO_FILE_OPTION},
-  {"unchanged-group-format", 1, 0, UNCHANGED_GROUP_FORMAT_OPTION},
-  {"unchanged-line-format", 1, 0, UNCHANGED_LINE_FORMAT_OPTION},
-  {"unidirectional-new-file", 0, 0, 'P'},
-  {"unified", 2, 0, 'U'},
-  {"version", 0, 0, 'v'},
-  {"width", 1, 0, 'W'},
+  {"binary", 0, nullptr, BINARY_OPTION},
+  {"brief", 0, nullptr, 'q'},
+  {"changed-group-format", 1, nullptr, CHANGED_GROUP_FORMAT_OPTION},
+  {"color", 2, nullptr, COLOR_OPTION},
+  {"context", 2, nullptr, 'C'},
+  {"ed", 0, nullptr, 'e'},
+  {"exclude", 1, nullptr, 'x'},
+  {"exclude-from", 1, nullptr, 'X'},
+  {"expand-tabs", 0, nullptr, 't'},
+  {"forward-ed", 0, nullptr, 'f'},
+  {"from-file", 1, nullptr, FROM_FILE_OPTION},
+  {"help", 0, nullptr, HELP_OPTION},
+  {"horizon-lines", 1, nullptr, HORIZON_LINES_OPTION},
+  {"ifdef", 1, nullptr, 'D'},
+  {"ignore-all-space", 0, nullptr, 'w'},
+  {"ignore-blank-lines", 0, nullptr, 'B'},
+  {"ignore-case", 0, nullptr, 'i'},
+  {"ignore-file-name-case", 0, nullptr, IGNORE_FILE_NAME_CASE_OPTION},
+  {"ignore-matching-lines", 1, nullptr, 'I'},
+  {"ignore-space-change", 0, nullptr, 'b'},
+  {"ignore-tab-expansion", 0, nullptr, 'E'},
+  {"ignore-trailing-space", 0, nullptr, 'Z'},
+  {"inhibit-hunk-merge", 0, nullptr, INHIBIT_HUNK_MERGE_OPTION},
+  {"initial-tab", 0, nullptr, 'T'},
+  {"label", 1, nullptr, 'L'},
+  {"left-column", 0, nullptr, LEFT_COLUMN_OPTION},
+  {"line-format", 1, nullptr, LINE_FORMAT_OPTION},
+  {"minimal", 0, nullptr, 'd'},
+  {"new-file", 0, nullptr, 'N'},
+  {"new-group-format", 1, nullptr, NEW_GROUP_FORMAT_OPTION},
+  {"new-line-format", 1, nullptr, NEW_LINE_FORMAT_OPTION},
+  {"no-dereference", 0, nullptr, NO_DEREFERENCE_OPTION},
+  {"no-ignore-file-name-case", 0, nullptr, NO_IGNORE_FILE_NAME_CASE_OPTION},
+  {"normal", 0, nullptr, NORMAL_OPTION},
+  {"old-group-format", 1, nullptr, OLD_GROUP_FORMAT_OPTION},
+  {"old-line-format", 1, nullptr, OLD_LINE_FORMAT_OPTION},
+  {"paginate", 0, nullptr, 'l'},
+  {"palette", 1, nullptr, COLOR_PALETTE_OPTION},
+  {"rcs", 0, nullptr, 'n'},
+  {"recursive", 0, nullptr, 'r'},
+  {"report-identical-files", 0, nullptr, 's'},
+  {"sdiff-merge-assist", 0, nullptr, SDIFF_MERGE_ASSIST_OPTION},
+  {"show-c-function", 0, nullptr, 'p'},
+  {"show-function-line", 1, nullptr, 'F'},
+  {"side-by-side", 0, nullptr, 'y'},
+  {"speed-large-files", 0, nullptr, 'H'},
+  {"starting-file", 1, nullptr, 'S'},
+  {"strip-trailing-cr", 0, nullptr, STRIP_TRAILING_CR_OPTION},
+  {"suppress-blank-empty", 0, nullptr, SUPPRESS_BLANK_EMPTY_OPTION},
+  {"suppress-common-lines", 0, nullptr, SUPPRESS_COMMON_LINES_OPTION},
+  {"tabsize", 1, nullptr, TABSIZE_OPTION},
+  {"text", 0, nullptr, 'a'},
+  {"to-file", 1, nullptr, TO_FILE_OPTION},
+  {"unchanged-group-format", 1, nullptr, UNCHANGED_GROUP_FORMAT_OPTION},
+  {"unchanged-line-format", 1, nullptr, UNCHANGED_LINE_FORMAT_OPTION},
+  {"unidirectional-new-file", 0, nullptr, 'P'},
+  {"unified", 2, nullptr, 'U'},
+  {"version", 0, nullptr, 'v'},
+  {"width", 1, nullptr, 'W'},
 
   /* This is solely for diff3.  Do not document.  */
   {"-no-directory", no_argument, nullptr, NO_DIRECTORY_OPTION},
 
   /* This is solely for testing.  Do not document.  */
   {"-presume-output-tty", no_argument, nullptr, PRESUME_OUTPUT_TTY_OPTION},
-  {0, 0, 0, 0}
+  {nullptr, 0, nullptr, 0}
 };
 
 /* Return a string containing the command options with which diff was invoked.
@@ -305,7 +305,11 @@ hard_locale_LC_TIME (void)
 	.tm_hour = 23, .tm_min = 59, .tm_sec = 59 };
   static char const expected[] = "Thu Jan  1 23:59:59 1970";
   char buf[sizeof expected];
-  return (nstrftime (buf, sizeof buf, "%c", &tm, 0, 0) == sizeof buf - 1
+
+  /* Zero placeholder since localtz is never needed.  */
+  static timezone_t const nulltz;
+
+  return (nstrftime (buf, sizeof buf, "%c", &tm, nulltz, 0) == sizeof buf - 1
 	  && memcmp (buf, expected, sizeof buf) == 0);
 }
 
@@ -914,13 +918,13 @@ add_regexp (struct regexp_list *reglist, char const *pattern)
   idx_t patlen = strlen (pattern);
   char const *m = re_compile_pattern (pattern, patlen, reglist->buf);
 
-  if (m != 0)
+  if (m)
     error (EXIT_TROUBLE, 0, "%s: %s", squote (0, pattern), m);
   else
     {
       char *regexps = reglist->regexps;
       idx_t len = reglist->len;
-      bool multiple_regexps = reglist->multiple_regexps = regexps != 0;
+      bool multiple_regexps = reglist->multiple_regexps = !!regexps;
       idx_t newlen = reglist->len = len + 2 * multiple_regexps + patlen;
       idx_t size = reglist->size;
 
@@ -1721,6 +1725,6 @@ struct comparison noparent;
 struct exclude *excluded;
 struct re_pattern_buffer function_regexp;
 struct re_pattern_buffer ignore_regexp;
-#ifndef localtz
+#if !HAVE_TM_GMTOFF
 timezone_t localtz;
 #endif

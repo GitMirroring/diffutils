@@ -160,9 +160,7 @@ extern bool ignore_file_name_case;
 extern bool no_dereference_symlinks;
 
 /* Local timezone for 'c' output headers, if needed.  */
-#if HAVE_TM_GMTOFF
-# define localtz 0 /* Placeholder since localtz is never needed.  */
-#else
+#if !HAVE_TM_GMTOFF
 extern timezone_t localtz;
 #endif
 

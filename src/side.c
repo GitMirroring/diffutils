@@ -279,10 +279,10 @@ print_sdiff_common_lines (lin limit0, lin limit1)
 	    print_1sdiff_line (&curr.file[0].linbuf[i0++], ' ',
 			       &curr.file[1].linbuf[i1++]);
           while (i1 != limit1)
-	    print_1sdiff_line (0, ')', &curr.file[1].linbuf[i1++]);
+	    print_1sdiff_line (nullptr, ')', &curr.file[1].linbuf[i1++]);
         }
       while (i0 != limit0)
-	print_1sdiff_line (&curr.file[0].linbuf[i0++], '(', 0);
+	print_1sdiff_line (&curr.file[0].linbuf[i0++], '(', nullptr);
     }
 
   next0 = limit0;
@@ -328,7 +328,7 @@ print_sdiff_hunk (struct change *hunk)
     {
       lin j;
       for (j = first1; j <= last1; ++j)
-	print_1sdiff_line (0, '>', &curr.file[1].linbuf[j]);
+	print_1sdiff_line (nullptr, '>', &curr.file[1].linbuf[j]);
       next1 = j;
     }
 
@@ -337,7 +337,7 @@ print_sdiff_hunk (struct change *hunk)
     {
       lin i;
       for (i = first0; i <= last0; ++i)
-	print_1sdiff_line (&curr.file[0].linbuf[i], '<', 0);
+	print_1sdiff_line (&curr.file[0].linbuf[i], '<', nullptr);
       next0 = i;
     }
 }

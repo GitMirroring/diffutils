@@ -209,20 +209,20 @@ enum
 static char const shortopts[] = "aeimvx3AEL:TX";
 static struct option const longopts[] =
 {
-  {"diff-program", 1, 0, DIFF_PROGRAM_OPTION},
-  {"easy-only", 0, 0, '3'},
-  {"ed", 0, 0, 'e'},
-  {"help", 0, 0, HELP_OPTION},
-  {"initial-tab", 0, 0, 'T'},
-  {"label", 1, 0, 'L'},
-  {"merge", 0, 0, 'm'},
-  {"overlap-only", 0, 0, 'x'},
-  {"show-all", 0, 0, 'A'},
-  {"show-overlap", 0, 0, 'E'},
-  {"strip-trailing-cr", 0, 0, STRIP_TRAILING_CR_OPTION},
-  {"text", 0, 0, 'a'},
-  {"version", 0, 0, 'v'},
-  {0, 0, 0, 0}
+  {"diff-program", 1, nullptr, DIFF_PROGRAM_OPTION},
+  {"easy-only", 0, nullptr, '3'},
+  {"ed", 0, nullptr, 'e'},
+  {"help", 0, nullptr, HELP_OPTION},
+  {"initial-tab", 0, nullptr, 'T'},
+  {"label", 1, nullptr, 'L'},
+  {"merge", 0, nullptr, 'm'},
+  {"overlap-only", 0, nullptr, 'x'},
+  {"show-all", 0, nullptr, 'A'},
+  {"show-overlap", 0, nullptr, 'E'},
+  {"strip-trailing-cr", 0, nullptr, STRIP_TRAILING_CR_OPTION},
+  {"text", 0, nullptr, 'a'},
+  {"version", 0, nullptr, 'v'},
+  {nullptr, 0, nullptr, 0}
 };
 
 int
@@ -245,7 +245,7 @@ main (int argc, char **argv)
   char *tag_strings[3];
 
   for (int c;
-       0 <= (c = getopt_long (argc, argv, shortopts, longopts, 0)); )
+       0 <= (c = getopt_long (argc, argv, shortopts, longopts, nullptr)); )
     switch (c)
       {
       case 'a':

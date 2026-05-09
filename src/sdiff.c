@@ -142,27 +142,27 @@ enum
 static char const shortopts[] = "abBdEHiI:lo:stvw:WZ";
 static struct option const longopts[] =
 {
-  {"diff-program", 1, 0, DIFF_PROGRAM_OPTION},
-  {"expand-tabs", 0, 0, 't'},
-  {"help", 0, 0, HELP_OPTION},
-  {"ignore-all-space", 0, 0, 'W'}, /* swap W and w for historical reasons */
-  {"ignore-blank-lines", 0, 0, 'B'},
-  {"ignore-case", 0, 0, 'i'},
-  {"ignore-matching-lines", 1, 0, 'I'},
-  {"ignore-space-change", 0, 0, 'b'},
-  {"ignore-tab-expansion", 0, 0, 'E'},
-  {"ignore-trailing-space", 0, 0, 'Z'},
-  {"left-column", 0, 0, 'l'},
-  {"minimal", 0, 0, 'd'},
-  {"output", 1, 0, 'o'},
-  {"speed-large-files", 0, 0, 'H'},
-  {"strip-trailing-cr", 0, 0, STRIP_TRAILING_CR_OPTION},
-  {"suppress-common-lines", 0, 0, 's'},
-  {"tabsize", 1, 0, TABSIZE_OPTION},
-  {"text", 0, 0, 'a'},
-  {"version", 0, 0, 'v'},
-  {"width", 1, 0, 'w'},
-  {0, 0, 0, 0}
+  {"diff-program", 1, nullptr, DIFF_PROGRAM_OPTION},
+  {"expand-tabs", 0, nullptr, 't'},
+  {"help", 0, nullptr, HELP_OPTION},
+  {"ignore-all-space", 0, nullptr, 'W'}, /* swap W/w for historical reasons */
+  {"ignore-blank-lines", 0, nullptr, 'B'},
+  {"ignore-case", 0, nullptr, 'i'},
+  {"ignore-matching-lines", 1, nullptr, 'I'},
+  {"ignore-space-change", 0, nullptr, 'b'},
+  {"ignore-tab-expansion", 0, nullptr, 'E'},
+  {"ignore-trailing-space", 0, nullptr, 'Z'},
+  {"left-column", 0, nullptr, 'l'},
+  {"minimal", 0, nullptr, 'd'},
+  {"output", 1, nullptr, 'o'},
+  {"speed-large-files", 0, nullptr, 'H'},
+  {"strip-trailing-cr", 0, nullptr, STRIP_TRAILING_CR_OPTION},
+  {"suppress-common-lines", 0, nullptr, 's'},
+  {"tabsize", 1, nullptr, TABSIZE_OPTION},
+  {"text", 0, nullptr, 'a'},
+  {"version", 0, nullptr, 'v'},
+  {"width", 1, nullptr, 'w'},
+  {nullptr, 0, nullptr, 0}
 };
 
 static void
@@ -464,7 +464,7 @@ main (int argc, char *argv[])
   /* Parse command line options.  */
 
   for (int c;
-       0 <= (c = getopt_long (argc, argv, shortopts, longopts, 0)); )
+       0 <= (c = getopt_long (argc, argv, shortopts, longopts, nullptr)); )
     switch (c)
       {
       case 'a':
@@ -732,7 +732,7 @@ signal_handler (int sig, sighandler handler)
 {
 #ifdef SA_NOCLDSTOP
   catchaction.sa_handler = handler;
-  sigaction (sig, &catchaction, 0);
+  sigaction (sig, &catchaction, nullptr);
 #else
   signal (sig, handler);
 #endif

@@ -72,6 +72,12 @@ print_context_label (char const *mark,
 
       struct tm const *tm = localtime (&ts.tv_sec);
       int nsec = ts.tv_nsec;
+
+#if HAVE_TM_GMTOFF
+      /* Zero placeholder since localtz is never needed.  */
+      static timezone_t const localtz;
+#endif
+
       if (tm
 	  && 0 <= nstrftime (buf, sizeof buf, time_format, tm, localtz, nsec))
 	fprintf (outfile, "%s %s\t%s", mark, name, buf);

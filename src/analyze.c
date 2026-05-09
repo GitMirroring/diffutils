@@ -592,7 +592,7 @@ diff_2_files (struct comparison *cmp)
               /* Disconnect them from the rest of the changes, making them
                  a hunk, and remember the rest for next iteration.  */
               next = end->link;
-              end->link = 0;
+              end->link = nullptr;
 
               /* Determine whether this hunk is really a difference.  */
               lin first0, last0, first1, last1;
@@ -604,7 +604,7 @@ diff_2_files (struct comparison *cmp)
             }
         }
       else
-        changes = (script != 0);
+        changes = !!script;
 
       if (brief)
         briefly_report (changes, cmp->file);
