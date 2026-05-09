@@ -64,9 +64,9 @@ config-compare:
 	  $(_cf_state_dir)/latest lib/config.h
 	diff -u					\
 	  -I'$(PACKAGE_NAME)'			\
-	  -I'[SD]\["VERSION"\]'			\
-	  -I'[SD]\["PACKAGE_VERSION"\]'		\
-	  -I'D\["PACKAGE_STRING"\]'		\
+	  -I'[SD]\["VERSION"]'			\
+	  -I'[SD]\["PACKAGE_VERSION"]'		\
+	  -I'D\["PACKAGE_STRING"]'		\
 	  $(_cf_state_dir)/latest config.status
 
 config-save:
