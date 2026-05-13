@@ -171,7 +171,7 @@ static char const *const option_help_msgid[] = {
   N_("-i, --ignore-initial=SKIP         skip first SKIP bytes of both inputs"),
   N_("-i, --ignore-initial=SKIP1:SKIP2  skip first SKIP1 bytes of FILE1 and\n"
      "                                      first SKIP2 bytes of FILE2"),
-  N_("-l, --verbose              output byte numbers and differing byte values"),
+  N_("-l, --verbose              output decimal byte numbers and differing byte values in octal"),
   N_("-n, --bytes=LIMIT          compare at most LIMIT bytes"),
   N_("-s, --quiet, --silent      suppress all normal output"),
   N_("    --help                 display this help and exit"),
@@ -184,7 +184,7 @@ usage (void)
 {
   printf (_("Usage: %s [OPTION]... FILE1 [FILE2 [SKIP1 [SKIP2]]]\n"),
 	  squote (0, program_name));
-  puts (_("Compare two files byte by byte."));
+  puts (_("Compare two files byte by byte. Byte and line numbers start with 1."));
   printf ("\n%s\n\n",
 _("The optional SKIP1 and SKIP2 specify the number of bytes to skip\n"
   "at the beginning of each file (zero by default)."));
