@@ -179,6 +179,7 @@ if test $gl_gcc_warnings != no; then
   done
   gl_WARN_ADD([-Wno-sign-compare])     # Too many false positives
   gl_WARN_ADD([-Wno-format-nonliteral])
+  gl_WARN_ADD([-Wno-keyword-macro])
 
   AC_SUBST([WARN_CFLAGS])
 
