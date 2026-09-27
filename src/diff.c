@@ -656,7 +656,7 @@ main (int argc, char **argv)
 
       case LINE_FORMAT_OPTION:
 	specify_style (OUTPUT_IFDEF);
-	for (int i = 0; i < sizeof line_format / sizeof line_format[0]; i++)
+	for (int i = 0; i < countof (line_format); i++)
 	  specify_value (&line_format[i], optarg, "--line-format");
 	break;
 
@@ -824,7 +824,7 @@ main (int argc, char **argv)
 
   if (output_style == OUTPUT_IFDEF)
     {
-      for (int i = 0; i < sizeof line_format / sizeof line_format[0]; i++)
+      for (int i = 0; i < countof (line_format); i++)
         if (!line_format[i])
           line_format[i] = "%l\n";
       if (!group_format[OLD])
@@ -1323,7 +1323,7 @@ compare_prepped_files (struct comparison const *parent,
 	major (cmp->file[1].stat.st_rdev),
 	minor (cmp->file[1].stat.st_rdev)
       };
-      enum { n_num = sizeof num / sizeof *num };
+      enum { n_num = countof (num) };
       char numbuf[n_num][INT_BUFSIZE_BOUND (intmax_t)];
       for (int i = 0; i < n_num; i++)
 	sprintf (numbuf[i], "%"PRIdMAX, num[i]);

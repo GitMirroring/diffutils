@@ -93,7 +93,7 @@ static int const sigs[] = {
 };
 enum
   {
-    NUM_SIGS = sizeof sigs / sizeof *sigs,
+    NUM_SIGS = countof (sigs),
     handler_index_of_SIGINT = NUM_SIGS - 1
   };
 
