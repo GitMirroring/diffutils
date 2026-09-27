@@ -9,6 +9,9 @@ GNU diffutils NEWS                                    -*- outline -*-
   or unexpectedly truncated data.
   [bugs present since "the beginning"]
 
+  diff -u no longer overflows a signed integer when PTRDIFF_MAX lines of
+  output context are requested.
+  [bug#81937 introduced in 3.11]
 
 * Noteworthy changes in release 3.12 (2025-04-08) [stable]
 

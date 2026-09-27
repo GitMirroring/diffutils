@@ -39,4 +39,18 @@ for opt in '' -u -c; do
   compare exp-$(echo $opt|tr ' ' _) out || fail=1
 done
 
+# This would overflow a signed integer in diffutils-3.12 and earlier.
+returns_ 1 diff -u -9999999999999999999999999999 a b >out-t 2>err || fail=1
+# Remove date and time.
+sed -e 's/^\([-+*][-+*][-+*] [^	]*\)	.*/\1/' out-t >out || framework_failure_
+cat <<\EOF >exp || framework_failure
+--- a
++++ b
+@@ -1 +1 @@
+-a
++b
+EOF
+compare exp out || fail=1
+compare /dev/null err || fail=1
+
 Exit $fail
