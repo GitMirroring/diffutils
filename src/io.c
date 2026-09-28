@@ -1203,9 +1203,11 @@ find_identical_ends (struct file_data filevec[])
          this line to the main body.  Discard up to HORIZON_LINES lines from
          the identical suffix.  Also, discard one extra line,
          because shift_boundaries may need it.  */
-      lin i = horizon_lines + !((buffer0 == p0 || p0[-1] == '\n')
-				&&
-				(buffer1 == p1 || p1[-1] == '\n'));
+      bool at_line_beginning = ((buffer0 == p0 || p0[-1] == '\n')
+				&& (buffer1 == p1 || p1[-1] == '\n'));
+      lin i;
+      if (ckd_add (&i, horizon_lines, !at_line_beginning))
+	i = LIN_MAX;
       while (i-- && p0 != end0)
         while (*p0++ != '\n')
           continue;
