@@ -210,7 +210,7 @@ slurp (struct file_data *current)
 	      current->bufsize = cc;
 	    }
 
-	  #if __GNUC__ == 13
+	  #if __GNUC__ == 13 && __GNUC_MINOR__ < 3
 	    #pragma GCC diagnostic pop
 	  #endif
 	}
