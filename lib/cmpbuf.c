@@ -43,6 +43,12 @@ block_read (int fd, char *buf, idx_t nbytes)
   char *bp = buf;
   char const *buflim = buf + nbytes;
   idx_t readlim = MIN (IDX_MAX, MIN (SSIZE_MAX, SIZE_MAX));
+#ifdef __CYGWIN__
+  /* Cygwin incorrectly truncates read sizes modulo 2**32, and
+     MS-Windows drivers and Cygwin internals are likely to flake out
+     above SYS_BUFSIZE_MAX anyway.  */
+  readlim = MIN (readlim, SYS_BUFSIZE_MAX);
+#endif
 
   do
     {
@@ -54,9 +60,9 @@ block_read (int fd, char *buf, idx_t nbytes)
           if (nread == 0)
             break;
 
-          /* Accommodate FreeBSD 13, which can't read more than INT_MAX bytes
-	     when debug.iosize_max_clamp is nonzero.  Prefer a power
-	     of two for the read limit in this case.
+          /* Accommodate macOS, which can't read more than INT_MAX bytes.
+	     FreeBSD behaves similarly if debug.iosize_max_clamp is nonzero.
+	     Prefer a power of two for the read limit in this case.
 
 	     Also, work around a bug in Linux kernel 6.3.8 tmpfs,
 	     which fails if the current offset + bytes_to_read exceeds
