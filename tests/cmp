@@ -251,4 +251,11 @@ if timeout 0.1 true && truncate -s 14T a && truncate -s 15T b; then
 fi
 rm -f a b
 
+printf '\1' >b
+if truncate -s 1G a b; then
+  returns_ 1 cmp -l a b >out || fail=1
+  test "$(echo $(cat out))" = '1 0 1' || fail=1
+fi
+rm -f a b
+
 Exit $fail

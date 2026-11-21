@@ -406,6 +406,7 @@ cmp (void)
   word *buffer1 = buffer[1];
   char *buf0 = (char *) buffer0;
   char *buf1 = (char *) buffer1;
+  int differing = 0;
 
   /* For -l, the print width of the offset, a positive number.
      Otherwise, the negative of the comparison type.
@@ -527,8 +528,6 @@ cmp (void)
           line_number += count_newlines (buf0, first_diff);
           at_line_start = buf0[first_diff - 1] == '\n';
         }
-
-      int differing = 0;
 
       if (first_diff < smaller)
         {
