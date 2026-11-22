@@ -4,6 +4,9 @@ GNU diffutils NEWS                                    -*- outline -*-
 
 ** Bug fixes
 
+  cmp -l no longer exits successfully if the only difference is early.
+  [bug#82280 introduced in 3.11]
+
   diff3 no longer has undefined behavior if the underlying diff
   program produces incorrect command lines, or enormous line numbers,
   or unexpectedly truncated data.
