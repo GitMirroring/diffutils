@@ -58,11 +58,12 @@ lib/file-type.h
 lib/fnmatch.h
 lib/getopt-cdefs.h
 lib/getopt.h
-lib/iconv*.h
 lib/inttypes.h
 lib/langinfo.h
 lib/limits.h
 lib/locale.h
+lib/pthread.h
+lib/sched.h
 lib/signal.h
 lib/sigsegv.h
 lib/stamp-h1
@@ -73,10 +74,9 @@ lib/stddef.h
 lib/stdint.h
 lib/stdio.h
 lib/stdlib.h
-# For some reason 'bootstrap' doesn't add /stdopen.[ch] to lib/.gitignore.
-lib/stdopen.[ch]
 lib/string.h
 lib/strings.h
+lib/sys-limits.h
 lib/time.h
 lib/uchar.h
 lib/unicase.h

@@ -29,7 +29,7 @@ noinst_HEADERS =
 
 include gnulib.mk
 
-noinst_HEADERS += cmpbuf.h diagnose.h
+noinst_HEADERS += cmpbuf.h diagnose.h sys-limits.h
 libdiffutils_a_SOURCES += cmpbuf.c diagnose.c
 
 AM_CFLAGS += $(GNULIB_WARN_CFLAGS) $(WERROR_CFLAGS)
