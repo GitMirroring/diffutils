@@ -31,6 +31,7 @@
 
 #include "intprops.h"
 #include "minmax.h"
+#include "sys-limits.h"
 
 /* Read NBYTES bytes from descriptor FD into BUF.
    Return the number of characters successfully read.
@@ -62,7 +63,6 @@ block_read (int fd, char *buf, idx_t nbytes)
 
           /* Accommodate macOS, which can't read more than INT_MAX bytes.
 	     FreeBSD behaves similarly if debug.iosize_max_clamp is nonzero.
-	     Prefer a power of two for the read limit in this case.
 
 	     Also, work around a bug in Linux kernel 6.3.8 tmpfs,
 	     which fails if the current offset + bytes_to_read exceeds
@@ -80,7 +80,7 @@ block_read (int fd, char *buf, idx_t nbytes)
 		}
 	      else
 		{
-		  readlim = MIN (bytes_to_read >> 1, INT_MAX / 2 + 1);
+		  readlim = MIN (bytes_to_read >> 1, SYS_BUFSIZE_MAX);
 		  continue;
 		}
 	    }
