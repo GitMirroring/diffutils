@@ -88,33 +88,7 @@ AC_HEADER_SYS_WAIT
 AC_TYPE_PID_T
 
 AC_FUNC_FORK
-
-dnl O_PATH exists since Linux 2.6.39, but is supported with fstat() only since
-dnl Linux 3.6. Use a configure test rather than testing `uname -sr`.
-AC_CACHE_CHECK([whether O_PATH supports fstat],
-  [du_cv_O_PATH_fstat],
-  [AC_RUN_IFELSE(
-     [AC_LANG_PROGRAM([[
-        #include <sys/types.h>
-        #include <sys/stat.h>
-        #include <fcntl.h>
-        ]], [[
-        struct stat statbuf;
-        int fd = openat (AT_FDCWD, "conftest.c", O_RDONLY|O_PATH);
-        return !(fd >= 0 && fstat (fd, &statbuf) == 0);
-        ]])
-     ],
-     [du_cv_O_PATH_fstat=yes],
-     [du_cv_O_PATH_fstat=no],
-     [du_cv_O_PATH_fstat="guessing no"])
-  ])
-case "$du_cv_O_PATH_fstat" in
-  yes)
-    AC_DEFINE([O_PATH_SUPPORTS_FSTAT], [1],
-      [Define to 1 if <fcntl.h> defines O_PATH and file descriptors
-       created with this flag are supported by fstat().])
-    ;;
-esac
+gl_WORKING_FSTAT_O_PATH
 
 # gl_GCC_VERSION_IFELSE([major], [minor], [run-if-found], [run-if-not-found])
 # ------------------------------------------------
